@@ -1,0 +1,23 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Retorno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/retorno.css') }}">
+</head>
+ 
+<div class="li">
+    <ul class="container">
+        {% for product in products %}
+        <br>
+        <li >
+            <ul>
+                <li class="codigo"><h6>CÓDIGO:</h6>{{ product['CODIGO'] }}</li>
+                <li class="descricao"><h6>DESCRICAO:</h6>{{ product['DESCRICAO'] }}</li>
+                <li class="NCM"><h6>NCM:</h6>{{ product['NCM'] }}</li>
+                <li class="valor"><h6>VALOR:</h6>{{ product.VALOR_FORMATADO }}</li>
+                <li class="estoque"><h6>ESTOQUE:</h6>{{ product['QUANTIDADE'] }}</li>
+            </ul>  
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+

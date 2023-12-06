@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Peças</title>
+</head>
+<body>
+    <header>
+        <img id="Logo" src="{{ url_for('static', filename='imgs/zyro-image.png') }}" alt="Logo">
+    </header>
+    <div class="Pesquisa">
+        <form onsubmit="event.preventDefault(); searchProduct();">
+            <label for="ColunaAProcurar">Selecione o campo de pesquisa</label>
+            <select name="Colunas" id="Colunas">
+                <option value="COD">codigo</option>
+                <option value="DESCRICAO">descricao</option>
+            </select>
+            <br>
+            <input type="text" id="TextoProcurar" placeholder="Pesquisar produtos..">
+            <button id="Procurar">pesquisar</button>
+        </form>
+    </div>
+
+    <div class="li">
+        <ul>
+            <li>
+                {% for product in products %}
+                <br>
+                <ul>
+                    <li>{{ product['COD'] }}</li>
+                    <li>{{ product['DESCRICAO'] }}</li>
+                    <li>{{ product['NCM'] }}</li>
+                    <li>{{ product['VLR'] }}</li>
+                </ul>  
+                {% endfor %}
+            </li>
+        </ul>
+    </div>
+
+
+    <footer>
+        <h2>TXSP DEV</h2>
+    </footer>
+    
+    <script>
+        function searchProduct() {
+            var searchText = document.getElementById('TextoProcurar').value;
+            var selectedColumn = document.getElementById('Colunas').value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/search', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.querySelector('.li ul').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send('Colunas=' + encodeURIComponent(selectedColumn) + '&TextoProcurar=' + encodeURIComponent(searchText));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+.li {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    align-items: center;
+}
+
+.container {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style-type: none;
+}
+.container li {
+    margin-right: 10px;
+    border-radius: 20px;
+    border: 1px solid #714723; /* Cor da borda */
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    background-color: #333; /* Cor de fundo do bloco */
+    margin-bottom: 20px;
+}
+
+.container li h6 {
+    letter-spacing: 2px;
+    color: #e67e22; /* Cor do título */
+    font-size: medium;
+    margin-bottom: 10px;
+}
+
+.codigo {
+    color: #fff; /* Cor do código */
+}
+
+.descricao {
+    color: #fff; /* Cor da descrição */
+}
+
+.NCM,
+.valor,
+.estoque {
+    color: #fff; /* Cor do texto geral */
+}
+
+.selected_item{
+    background-color: transparent;
+
+}

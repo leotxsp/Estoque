@@ -1,0 +1,14 @@
+CREATE TABLE PRODUTOS(
+ID int auto_increment primary key,
+DESCRICAO VARCHAR(100),
+NCM VARCHAR(9),
+CODIGO VARCHAR (30),
+QUANTIDADE integer (10),
+VALOR_ENTRADA FLOAT(6, 2),
+VALOR_SAIDA FLOAT(6, 2)
+);
+
+show databases
+
+
+select * FROM PRODUTOS
