@@ -59,5 +59,13 @@
             xhr.send('Colunas=' + encodeURIComponent(selectedColumn) + '&TextoProcurar=' + encodeURIComponent(searchText));
         }
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var successMessage = "{{ get_flashed_messages(category_filter=['success'])[0] }}";
+        if (successMessage) {
+            alert(successMessage);
+        }
+    });
+    </script>
 </body>
 </html>

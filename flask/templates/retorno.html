@@ -14,7 +14,14 @@
                 <li class="descricao"><h6>DESCRICAO:</h6>{{ product['DESCRICAO'] }}</li>
                 <li class="NCM"><h6>NCM:</h6>{{ product['NCM'] }}</li>
                 <li class="valor"><h6>VALOR:</h6>{{ product.VALOR_FORMATADO }}</li>
-                <li class="estoque"><h6>ESTOQUE:</h6>{{ product['QUANTIDADE'] }}</li>
+                <li class="estoque">
+                    <form method="post" action="{{ url_for('update_stock') }}">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                    <label for="quantity">Quantidade:</label>
+                    <input type="number" name="quantity" value="{{ product['QUANTIDADE'] }}"required>
+                    <button type="submit">Atualizar Estoque</button>
+                    </form>
+                </li>
             </ul>  
         </li>
         {% endfor %}
